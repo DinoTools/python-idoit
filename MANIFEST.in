@@ -1,0 +1,4 @@
+include README.rst CHANGELOG.rst
+include LICENSE
+include MANIFEST.in
+include tests/*.py
