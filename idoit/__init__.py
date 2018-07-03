@@ -133,6 +133,42 @@ class Idoit(BaseRequest):
 
 
 class CMDBCategory(BaseRequest):
+    def create(self, object_id, category=None, catg_id=None, cats_id=None, data=None):
+        """
+        Create a new category entry for an object.
+
+        Use only one of the optional parameters category, catg_id or cats_id.
+
+        :param int object_id: Object identifier
+        :param str category: Category constant
+        :param int catg_id: Global category identifier
+        :param int cats_id: Specific category identifier
+        :param dict data: Data to create the category with.
+
+        :raises ValueError: If data is not a dict
+        """
+        params = {
+            "objID": object_id
+        }
+        if category:
+            params["category"] = category
+        elif catg_id:
+            params["catgID"] = catg_id
+        elif cats_id:
+            params["catsID"] = cats_id
+        else:
+            # ToDo: Improve exception
+            raise Exception("Missing parameter")
+
+        if not isinstance(data, dict):
+            raise ValueError("data must be type 'dict' not '%s'" % type(data))
+
+        params["data"] = data
+        return self._api.request(
+            method="cmdb.category.create",
+            params=params
+        )
+
     def read(self, object_id, category=None, catg_id=None, cats_id=None):
         """
         Read one or more category entries for an object.
