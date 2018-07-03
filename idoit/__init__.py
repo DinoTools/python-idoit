@@ -133,6 +133,30 @@ class Idoit(BaseRequest):
 
 
 class CMDBCategory(BaseRequest):
+    def archive(self, object_id, category, entry_id):
+        """
+        Mark a category as archived.
+
+        :param int object_id: Object identifier
+        :param str category: Category constant
+        :param int entry_id: Entry identifier
+
+        :raises ValueError: If entry_id is not a dict
+        """
+        if isinstance(entry_id, str):
+            entry_id = int(entry_id)
+
+        params = {
+            "objID": object_id,
+            "category": category,
+            "cateID": entry_id
+        }
+
+        return self._api.request(
+            method="cmdb.category.delete",
+            params=params
+        )
+
     def create(self, object_id, category=None, catg_id=None, cats_id=None, data=None):
         """
         Create a new category entry for an object.
