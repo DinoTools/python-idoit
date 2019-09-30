@@ -137,6 +137,10 @@ class CMDBCategory(BaseRequest):
     STATUS_ARCHIVED = "C__RECORD_STATUS__ARCHIVED"
     STATUS_DELETED = "C__RECORD_STATUS__DELETED"
 
+    def __init__(self, api=None, api_params=None, default_read_status=None):
+        super(CMDBCategory, self).__init__(api=api, api_params=api_params)
+        self.default_read_status = default_read_status
+
     def read(self, object_id, category=None, catg_id=None, cats_id=None, status=None):
         """
         Read one or more category entries for an object.
@@ -163,6 +167,8 @@ class CMDBCategory(BaseRequest):
             # ToDo: Improve exception
             raise Exception("Missing parameter")
 
+        if status is None:
+            status = self.default_read_status
         if status is not None:
             params["status"] = status
 
