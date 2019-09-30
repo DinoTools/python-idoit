@@ -13,7 +13,7 @@ __title__ = "idoit"
 __summary__ = "Python Wrapper to access the i-doit JSON-RPC API"
 __uri__ = "https://github.com/DinoTools/python-idoit"
 
-__version__ = "0.1"
+__version__ = "0.2"
 
 __author__ = "PhiBo (DinoTools)"
 __email__ = ""
