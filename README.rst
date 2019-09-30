@@ -3,6 +3,15 @@ Python i-doit JSON-RPC Wrapper
 
 A Python Wrapper to access the `i-doit`_ JSON-RPC API.
 
+
+.. image:: https://img.shields.io/pypi/v/idoit.svg
+    :target: https://pypi.org/project/idoit/
+    :alt: Latest Version
+
+.. image:: https://img.shields.io/pypi/l/idoit.svg
+    :target: https://pypi.org/project/idoit/
+    :alt: License
+
 .. image:: https://travis-ci.org/DinoTools/python-idoit.svg?branch=master
     :target: https://travis-ci.org/DinoTools/python-idoit
 
