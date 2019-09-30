@@ -23,6 +23,7 @@ setup(
 
     description=about["__summary__"],
     long_description=long_description,
+    long_description_content_type="text/x-rst",
     license=about["__license__"],
     url=about["__uri__"],
 
